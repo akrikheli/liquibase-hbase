@@ -1,5 +1,6 @@
 package liquibase.ext.hbase.database;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import liquibase.Contexts;
@@ -11,6 +12,7 @@ import liquibase.exception.LiquibaseException;
 import liquibase.ext.hbase.database.jvm.HbaseJdbcConnection;
 import liquibase.resource.FileSystemResourceAccessor;
 
+@Ignore
 public class TestFileBasedChangeLogs extends TestHbase {
 
   @Test
