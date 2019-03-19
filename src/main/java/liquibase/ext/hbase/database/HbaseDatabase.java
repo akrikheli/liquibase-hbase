@@ -36,7 +36,6 @@ import liquibase.structure.core.Sequence;
 
 /**
  * HBase implementation for liquibase
- *
  */
 public class HbaseDatabase extends AbstractJdbcDatabase {
 
@@ -203,9 +202,9 @@ public class HbaseDatabase extends AbstractJdbcDatabase {
   /**
 	 * Exact Copy of AbstractJdbcDatabase#isCurrentTimeFunction to 
 	 * satisfy HbaseDatabase#generateDatabaseFunctionValue()
-	 * 
+	 *
 	 * @param functionValue
-	 * @return
+	 * @return is current time
 	 */
   private boolean isCurrentTimeFunction(final String functionValue) {
     if (functionValue == null) {
@@ -221,7 +220,7 @@ public class HbaseDatabase extends AbstractJdbcDatabase {
    * Copy of AbstractJdbcDatabase#generateDatabaseFunctionValue() with minor diff as
    * described below
    * 
-   * Internal sequenceName has dot(.) at this moment for sure it prefixed with "<schema_name>."
+   * Internal sequenceName has dot (.) at this moment for sure it prefixed with &lt;schema_name&gt;"
    * To pass through, we are by passing escapeObjectName method which escapes using 
    * AbstractJdbcDatabase#quotingStartCharacter and AbstractJdbcDatabase#quotingEndCharacter
    * Hence, Safer to not allow dot(.) in external sequence names coming through changesets as 
@@ -296,8 +295,8 @@ public class HbaseDatabase extends AbstractJdbcDatabase {
 	 * 
 	 * Schema.class in Liquibase Core trims empty schema and convert to "null" value,
 	 * which can be avoided using this constant for real "" or empty schema.
-	 * 
-	 * @return
+     *
+     * @return native Default Schema
 	 */
 	public String getNativeDefaultSchema() {
 	  return "HBASE_NATIVE_DEFAULT_SCHEMA";
