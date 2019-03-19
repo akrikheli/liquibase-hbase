@@ -5,6 +5,7 @@ import liquibase.database.AbstractJdbcDatabase;
 import liquibase.database.Database;
 import liquibase.database.ObjectQuotingStrategy;
 import liquibase.database.jvm.JdbcConnection;
+import liquibase.diff.compare.DatabaseObjectComparatorFactory;
 import liquibase.exception.DatabaseException;
 import liquibase.ext.hbase.database.HbaseDatabase;
 import liquibase.snapshot.DatabaseSnapshot;
@@ -12,9 +13,7 @@ import liquibase.snapshot.InvalidExampleException;
 import liquibase.snapshot.jvm.SchemaSnapshotGenerator;
 import liquibase.structure.DatabaseObject;
 import liquibase.structure.core.Catalog;
-import liquibase.structure.core.Column;
 import liquibase.structure.core.Schema;
-import liquibase.diff.compare.DatabaseObjectComparatorFactory;
 import liquibase.util.JdbcUtils;
 
 import java.sql.ResultSet;
@@ -22,6 +21,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("unchecked")
 public class HbaseSchemaSnapshotGenerator extends SchemaSnapshotGenerator {
 
   private Class<? extends DatabaseObject> defaultFor = null;

@@ -26,7 +26,7 @@ import liquibase.database.AbstractJdbcDatabase;
 import liquibase.database.DatabaseConnection;
 import liquibase.database.ObjectQuotingStrategy;
 import liquibase.exception.DatabaseException;
-import liquibase.logging.LogFactory;
+import liquibase.logging.LogService;
 import liquibase.logging.Logger;
 import liquibase.statement.DatabaseFunction;
 import liquibase.statement.SequenceCurrentValueFunction;
@@ -40,7 +40,7 @@ import liquibase.structure.core.Sequence;
  */
 public class HbaseDatabase extends AbstractJdbcDatabase {
 
-  private static final Logger LOG = LogFactory.getInstance().getLog();
+  private static final Logger LOG = LogService.getLog(HbaseDatabase.class);
   private final String databaseProductName;
   private final String prefix;
   private final String databaseDriver;
